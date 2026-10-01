@@ -1,0 +1,14 @@
+{
+  "name": "businka",
+  "private": true,
+  "description": "Dev tooling (CSS minification for web/css)",
+  "type": "module",
+  "scripts": {
+    "minify-css": "node scripts/minify-css.mjs",
+    "format-css": "prettier --write \"web/css/*.css\""
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "prettier": "^3.5.3"
+  }
+}

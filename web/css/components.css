@@ -1,0 +1,368 @@
+/* ==========================================================================
+   2. SHARED UI COMPONENTS — Businka
+   ========================================================================== */
+
+/* --- Ambient background --- */
+.ui-ambient,
+.auth-boutique__ambient,
+.error-page__ambient,
+.policy-hero__ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--bg-ambient);
+  pointer-events: none;
+}
+
+/* --- Pill buttons (error, policy, contact) --- */
+.ui-btn,
+.error-page__btn,
+.policy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ui-btn--primary,
+.error-page__btn--primary,
+.policy-btn--primary {
+  background: var(--pink1);
+  color: #fff;
+  border: 1px solid var(--pink1);
+}
+
+.ui-btn--primary:hover,
+.error-page__btn--primary:hover,
+.policy-btn--primary:hover {
+  color: #fff;
+  filter: brightness(0.95);
+  box-shadow: 0 8px 24px rgba(255, 64, 129, 0.3);
+}
+
+.ui-btn--ghost,
+.error-page__btn--ghost,
+.policy-btn--ghost,
+.contact-btn-ghost {
+  background: #fff;
+  color: var(--dark);
+  border: 1px solid rgba(40, 40, 38, 0.15);
+}
+
+.ui-btn--ghost:hover,
+.error-page__btn--ghost:hover,
+.policy-btn--ghost:hover,
+.contact-btn-ghost:hover {
+  background: var(--pink);
+  color: var(--dark);
+  border-color: rgba(40, 40, 38, 0.2);
+}
+
+.contact-btn-ghost {
+  min-height: 48px;
+  padding: 0 22px;
+  background: transparent;
+}
+
+/* --- Text link --- */
+.ui-link,
+.error-page__link,
+.policy-link,
+.contact-showcase__link {
+  color: var(--pink1);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ui-link:hover,
+.error-page__link:hover,
+.policy-link:hover {
+  color: #e91e63;
+}
+
+.contact-showcase__link {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-showcase__link:hover {
+  text-decoration: underline;
+}
+
+/* --- Eyebrow label --- */
+.ui-eyebrow,
+.error-page__eyebrow,
+.policy-hero__eyebrow,
+.auth-boutique__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink1);
+}
+
+.auth-boutique__eyebrow {
+  letter-spacing: 0.35em;
+  color: var(--pink2);
+}
+
+/* --- Content card --- */
+.ui-card,
+.policy-card,
+.error-page__card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(40, 40, 38, 0.06);
+}
+
+.error-page__card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ==========================================================================
+   3. ADMIN PAGE CHROME (shared across admin-* views)
+   ========================================================================== */
+
+.admin-products,
+.admin-orders,
+.admin-reviews,
+.admin-order-view,
+.admin-promo-index {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.admin-header,
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.admin-title,
+.page-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.admin-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.admin-nav-btn,
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: var(--pink2);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  border: 1px solid rgba(139, 140, 123, 0.25);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.admin-nav-btn:hover,
+.back-link:hover {
+  background: var(--pink2);
+  color: #fff;
+  border-color: var(--pink2);
+}
+
+.admin-nav-btn.success {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+.back-link {
+  padding: 8px 16px;
+  background: rgba(139, 140, 123, 0.08);
+}
+
+/* --- Admin cards & tables --- */
+.products-card,
+.orders-container,
+.filters-card,
+.card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.filters-card { margin-bottom: 24px; overflow: hidden; }
+.filters-card.collapsed .filters-content { display: none; }
+.filters-card.collapsed .filters-toggle { transform: rotate(-90deg); }
+
+.filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: rgba(239, 236, 225, 0.3);
+  cursor: pointer;
+}
+
+.filters-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--pink2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filters-content { padding: 24px; }
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.filter-input,
+.modal-input,
+.status-select,
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(139, 140, 123, 0.2);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--dark);
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.filter-input:focus,
+.modal-input:focus,
+.status-select:focus,
+.form-control:focus {
+  outline: 0;
+  border-color: var(--pink2);
+}
+
+.filter-btn,
+.modal-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.apply,
+.modal-btn.save,
+.btn-save {
+  background: var(--pink2);
+  color: #fff;
+}
+
+.filter-btn.reset,
+.modal-btn.cancel,
+.btn-cancel {
+  background: transparent;
+  color: var(--pink2);
+}
+
+/* --- Status badges --- */
+.status-badge,
+.stock-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.status-active, .status-completed, .stock-high { background: rgba(108, 153, 29, 0.12); color: var(--green); }
+.status-inactive, .status-cancelled, .stock-zero { background: rgba(139, 140, 123, 0.1); color: var(--pink2); }
+.status-pending, .stock-low { background: rgba(255, 226, 234, 0.6); color: #8b6b7a; }
+.status-processing, .stock-medium { background: rgba(229, 188, 203, 0.4); color: #7a5a6a; }
+
+/* --- Modals --- */
+.modal,
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 40, 38, 0.4);
+  backdrop-filter: blur(3px);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content,
+.modal-window {
+  background: #fff;
+  border-radius: 24px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 20px 40px rgba(40, 40, 38, 0.15);
+  animation: uiModalIn 0.25s ease;
+}
+
+@keyframes uiModalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(139, 140, 123, 0.1);
+}
+
+.modal-header h3 { margin: 0; font-size: 18px; font-weight: 400; color: var(--dark); }
+.modal-body { padding: 24px; }
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px 24px;
+}
+
+.modal-close {
+  background: 0 0;
+  border: none;
+  font-size: 24px;
+  color: var(--pink2);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+}
+
+.modal-close:hover { background: rgba(139, 140, 123, 0.08); }
+
+@media (max-width: 768px) {
+  .admin-products, .admin-orders, .admin-reviews, .admin-order-view { padding: 16px; }
+  .admin-header, .page-header { flex-direction: column; align-items: stretch; }
+  .filters-grid { grid-template-columns: 1fr; }
+}
