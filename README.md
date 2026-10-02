@@ -49,8 +49,18 @@ MySQL: **10 таблиц + 1 представление** (`v_cart_details` — 
 ```bash
 composer install
 cp config/db-local.example.php config/db-local.php   # впишите свои данные подключения к MySQL
+```
+
+База данных (структура лежит в [`database/schema.sql`](database/schema.sql)):
+
+```bash
+mysql -u USER -p -e "CREATE DATABASE bijouterie CHARACTER SET utf8mb4;"
+mysql -u USER -p bijouterie < database/schema.sql
+php yii migrate/mark m260526_171500_product_description_text   # структура уже содержит обе миграции
 php yii serve
 ```
+
+> **Про `schema.sql`:** это не выгрузка с рабочего сервера, а структура, восстановленная по моделям Yii2, миграциям и описанию базы из диплома. Названия таблиц, колонки, связи и уникальные ключи взяты из кода; точные типы (длины VARCHAR, точность DECIMAL) выведены из правил валидации и могут отличаться от исходной базы. Данных пользователей и заказов в файле нет. Администратора нужно создать самому: зарегистрируйте пользователя на сайте и поменяйте ему `is_admin` на `admin`.
 
 Данные подключения к БД хранятся в `config/db-local.php`; он в `.gitignore` и в репозиторий не попадает.
 
